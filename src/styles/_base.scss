@@ -1,0 +1,13 @@
+// Base is normally used for initial and default settings
+// be it for colors, typography, margins, units, etc.
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px -- 10px / 16px = 62.5%
+}
