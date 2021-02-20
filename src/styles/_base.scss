@@ -8,6 +8,12 @@
   box-sizing: inherit;
 }
 
+h1,
+h2,
+h3 {
+  color: rgb(54, 54, 54);
+}
+
 html {
   font-size: 62.5%; // 1rem = 10px -- 10px / 16px = 62.5%
 }

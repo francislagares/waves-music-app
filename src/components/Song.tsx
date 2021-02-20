@@ -1,11 +1,12 @@
 import React from 'react';
+import { IProps } from '../interfaces';
 
-const Song = (): JSX.Element => {
+const Song = ({ currentSong }: IProps): JSX.Element => {
   return (
     <div className='song-container'>
-      <h1>Picture</h1>
-      <h1>Song Name</h1>
-      <h1>Artist</h1>
+      <img src={currentSong.cover} alt={currentSong.artist} />
+      <h2>{currentSong.name}</h2>
+      <h3>{currentSong.artist}</h3>
     </div>
   );
 };

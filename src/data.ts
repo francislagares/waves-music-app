@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
-import { ISongs } from './interfaces';
+import { ISong } from './interfaces';
 
-function chillHop(): ISongs[] {
+function chillHop(): ISong[] {
   return [
     {
       name: 'Beaver Creek',
