@@ -11,3 +11,18 @@ export interface ISong {
 export interface IProps {
   currentSong: ISong;
 }
+
+export interface ISongInfo {
+  currentTime: number | string;
+  duration: number | string;
+}
+
+export interface IPlayer {
+  currentSong: ISong;
+  isPlaying: boolean;
+  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IPlayerFields {
+  value: HTMLMediaElement;
+}
