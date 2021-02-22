@@ -8,12 +8,22 @@
   box-sizing: inherit;
 }
 
+html {
+  font-size: 62.5%; // 1rem = 10px -- 10px / 16px = 62.5%
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
 h1,
 h2,
 h3 {
   color: rgb(54, 54, 54);
 }
 
-html {
-  font-size: 62.5%; // 1rem = 10px -- 10px / 16px = 62.5%
+h3,
+h4 {
+  font-weight: 400;
+  color: rgb(100, 100, 100);
 }
