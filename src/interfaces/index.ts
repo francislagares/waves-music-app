@@ -12,17 +12,22 @@ export interface IProps {
   currentSong: ISong;
 }
 
+export interface ISongProps {
+  song: ISong;
+}
+
+export interface ILibraryProps {
+  songs: ISong[];
+}
+
 export interface ISongInfo {
   currentTime: number | string;
   duration: number | string;
+  value?: HTMLAudioElement;
 }
 
 export interface IPlayer {
   currentSong: ISong;
   isPlaying: boolean;
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export interface IPlayerFields {
-  value: HTMLMediaElement;
 }
