@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useRef, useState } from 'react';
 import {
   faPlay,
@@ -44,7 +43,7 @@ const Player = ({
     setSongInfo({ ...songInfo, currentTime: current, duration });
   };
 
-  const getTime = (time: any): string => {
+  const getTime = (time: number): string => {
     return (
       Math.floor(time / 60) + ':' + ('0' + Math.floor(time % 60)).slice(-2)
     );
@@ -60,14 +59,14 @@ const Player = ({
   return (
     <div className='player'>
       <div className='time-control'>
-        <p>{getTime(songInfo.currentTime)}</p>
+        <p>{getTime(songInfo.currentTime as number)}</p>
         <input
           min={0}
           max={songInfo.duration}
           type='range'
           onChange={dragHandler}
         />
-        <p>{getTime(songInfo.duration)}</p>
+        <p>{getTime(songInfo.duration as number)}</p>
       </div>
       <div className='play-control'>
         <FontAwesomeIcon className='skip-back' size='2x' icon={faAngleLeft} />
