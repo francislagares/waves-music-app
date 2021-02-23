@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
+import Library from './components/Library';
 import Player from './components/Player';
 import Song from './components/Song';
 import getSongs from './data';
@@ -7,7 +9,7 @@ import './styles/app.scss';
 
 const App = (): JSX.Element => {
   const data = getSongs();
-  const [songs, setSongs] = useState<ISong[]>([]);
+  const [songs, setSongs] = useState<ISong[]>(data);
   const [currentSong, setCurrentSong] = useState(data[0]);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -19,6 +21,7 @@ const App = (): JSX.Element => {
         setIsPlaying={setIsPlaying}
         currentSong={currentSong}
       />
+      <Library songs={songs} />
     </div>
   );
 };
