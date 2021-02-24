@@ -14,10 +14,13 @@ export interface IProps {
 
 export interface ISongProps {
   song: ISong;
+  songs: ISong[];
+  setCurrentSong: React.Dispatch<React.SetStateAction<ISong>>;
 }
 
 export interface ILibraryProps {
   songs: ISong[];
+  setCurrentSong: React.Dispatch<React.SetStateAction<ISong>>;
 }
 
 export interface ISongInfo {
