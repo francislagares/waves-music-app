@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import {
   faPlay,
   faPause,
@@ -7,20 +7,16 @@ import {
   faAngleRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IPlayer, ISongInfo } from '../interfaces';
-import { Change, Update } from '../types/Events';
+import { IPlayer } from '../interfaces';
+import { Change } from '../types/Events';
 
 const Player = ({
-  currentSong,
+  audioRef,
   isPlaying,
   setIsPlaying,
+  songInfo,
+  setSongInfo,
 }: IPlayer): JSX.Element => {
-  const [songInfo, setSongInfo] = useState<ISongInfo>({
-    currentTime: 0,
-    duration: 0,
-  });
-  const audioRef = useRef<HTMLAudioElement>(null);
-
   const playSongHandler = (): void => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -31,16 +27,6 @@ const Player = ({
         setIsPlaying(!isPlaying);
       }
     }
-  };
-
-  const timeUpdateHandler = (e: Update): void => {
-    // This solves issue property 'currentTime' & 'duration' does not exist on type 'EventTarget'.
-    const target = e.target as typeof e.target & ISongInfo;
-
-    const current = target.currentTime;
-    const duration = target.duration;
-
-    setSongInfo({ ...songInfo, currentTime: current, duration });
   };
 
   const getTime = (time: number): string => {
@@ -71,6 +57,7 @@ const Player = ({
       <div className='play-control'>
         <FontAwesomeIcon className='skip-back' size='2x' icon={faAngleLeft} />
         <FontAwesomeIcon
+          role='button'
           className='play'
           size='2x'
           icon={isPlaying ? faPause : faPlay}
@@ -82,12 +69,6 @@ const Player = ({
           icon={faAngleRight}
         />
       </div>
-      <audio
-        onTimeUpdate={timeUpdateHandler}
-        onLoadedMetadata={timeUpdateHandler}
-        ref={audioRef}
-        src={currentSong.audio}
-      ></audio>
     </div>
   );
 };

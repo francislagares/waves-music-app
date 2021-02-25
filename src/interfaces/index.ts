@@ -15,11 +15,17 @@ export interface IProps {
 export interface ISongProps {
   song: ISong;
   songs: ISong[];
+  isPlaying: boolean;
+  audioRef: React.RefObject<HTMLAudioElement>;
+  setSongs: React.Dispatch<React.SetStateAction<ISong[]>>;
   setCurrentSong: React.Dispatch<React.SetStateAction<ISong>>;
 }
 
 export interface ILibraryProps {
   songs: ISong[];
+  isPlaying: boolean;
+  audioRef: React.RefObject<HTMLAudioElement>;
+  setSongs: React.Dispatch<React.SetStateAction<ISong[]>>;
   setCurrentSong: React.Dispatch<React.SetStateAction<ISong>>;
 }
 
@@ -30,7 +36,10 @@ export interface ISongInfo {
 }
 
 export interface IPlayer {
+  audioRef: React.RefObject<HTMLAudioElement>;
   currentSong: ISong;
+  songInfo: ISongInfo;
   isPlaying: boolean;
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  setSongInfo: React.Dispatch<React.SetStateAction<ISongInfo>>;
 }

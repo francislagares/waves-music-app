@@ -9,7 +9,7 @@ describe('Library Component', () => {
   test('render a list of songs', async () => {
     render(<Library songs={data} />);
 
-    const songs = await screen.findAllByRole('listitem');
+    const songs = await screen.findAllByRole('presentation');
 
     expect(songs).toHaveLength(6);
   });
