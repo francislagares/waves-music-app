@@ -24,6 +24,7 @@ export interface ISongProps {
 export interface ILibraryProps {
   songs: ISong[];
   isPlaying: boolean;
+  libraryStatus: boolean;
   audioRef: React.RefObject<HTMLAudioElement>;
   setSongs: React.Dispatch<React.SetStateAction<ISong[]>>;
   setCurrentSong: React.Dispatch<React.SetStateAction<ISong>>;
@@ -42,4 +43,9 @@ export interface IPlayer {
   isPlaying: boolean;
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
   setSongInfo: React.Dispatch<React.SetStateAction<ISongInfo>>;
+}
+
+export interface INavProps {
+  libraryStatus: boolean;
+  setLibraryStatus: React.Dispatch<React.SetStateAction<boolean>>;
 }
