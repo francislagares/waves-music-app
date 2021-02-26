@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useState, useRef } from 'react';
 import Library from './components/Library';
+import Nav from './components/Nav';
 import Player from './components/Player';
 import Song from './components/Song';
 import getSongs from './data';
@@ -14,6 +15,7 @@ const App = (): JSX.Element => {
   const [songs, setSongs] = useState<ISong[]>(data);
   const [currentSong, setCurrentSong] = useState(data[0]);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [libraryStatus, setLibraryStatus] = useState(false);
   const [songInfo, setSongInfo] = useState<ISongInfo>({
     currentTime: 0,
     duration: 0,
@@ -31,6 +33,7 @@ const App = (): JSX.Element => {
 
   return (
     <div className='app'>
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
       <Player
         audioRef={audioRef}
@@ -46,6 +49,7 @@ const App = (): JSX.Element => {
         setSongs={setSongs}
         setCurrentSong={setCurrentSong}
         isPlaying={isPlaying}
+        libraryStatus={libraryStatus}
       />
       <audio
         onTimeUpdate={timeUpdateHandler}

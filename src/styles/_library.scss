@@ -1,13 +1,35 @@
+@media screen and (prefers-reduced-motion: reduce) {
+  .library {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20rem;
+    height: 100%;
+    background: white;
+    box-shadow: .2rem .2rem 5rem gray;
+    overflow: scroll;
+    transform: translate(-100%);
+    transition: none;
+    opacity: 0;
+
+    h2 {
+      padding: 2rem;
+    }
+  }
+}
+
 .library {
   position: fixed;
   top: 0;
   left: 0;
   width: 20rem;
   height: 100%;
-  opacity: 1;
   background: white;
   box-shadow: .2rem .2rem 5rem gray;
   overflow: scroll;
+  transform: translate(-100%);
+  transition: all .5s ease;
+  opacity: 0;
 
   h2 {
     padding: 2rem;
@@ -63,4 +85,9 @@
 
 .selected {
   background: rgb(111, 135, 201);
+}
+
+.active-library {
+  transform: translate(0%);
+  opacity: 1;
 }

@@ -1,0 +1,46 @@
+nav {
+  min-height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    button {
+      padding: .5rem;
+      border: none;
+      border: 2px solid rgb(65, 65, 65);
+      background: transparent;
+      cursor: pointer;
+      transition: none;
+
+      &:hover,
+      &:focus {
+        color: white;
+        background: rgb(65, 65, 65);
+      }
+    }
+  }
+
+  button {
+    padding: .5rem;
+    border: none;
+    border: 2px solid rgb(65, 65, 65);
+    background: transparent;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover,
+    &:focus {
+      color: white;
+      background: rgb(65, 65, 65);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    button {
+      z-index: 2;
+    }
+  }
+}
