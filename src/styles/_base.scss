@@ -23,3 +23,17 @@ h4 {
   font-weight: 400;
   color: rgb(100, 100, 100);
 }
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .app {
+    transition: none;
+  }
+}
+
+.app {
+  transition: all .5s ease;
+}
+
+.library-active {
+  margin-left: 30%;
+}
