@@ -10,9 +10,9 @@ const LibrarySong = ({
   audioRef,
   isPlaying,
 }: ISongProps): JSX.Element => {
-  const songSelectHandler = (): void => {
+  const songSelectHandler = async (): Promise<void> => {
     const selectedSong = song;
-    setCurrentSong(selectedSong);
+    await setCurrentSong(selectedSong);
     // Add active state
     const newSongs = songs.map(songData => {
       if (songData.id === song.id) {
@@ -30,14 +30,8 @@ const LibrarySong = ({
 
     setSongs(newSongs);
 
-    if (isPlaying) {
-      const playPromise = audioRef.current?.play();
-      if (playPromise !== undefined) {
-        playPromise.then(song => {
-          audioRef.current?.play();
-        });
-      }
-    }
+    // Check if song is playing
+    if (isPlaying && audioRef.current) audioRef.current.play();
   };
 
   return (

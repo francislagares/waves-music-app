@@ -19,6 +19,7 @@ const App = (): JSX.Element => {
   const [songInfo, setSongInfo] = useState<ISongInfo>({
     currentTime: 0,
     duration: 0,
+    animationPercentage: 0,
   });
 
   const timeUpdateHandler = (e: Update): void => {
@@ -28,7 +29,23 @@ const App = (): JSX.Element => {
     const current = target.currentTime;
     const duration = target.duration;
 
-    setSongInfo({ ...songInfo, currentTime: current, duration });
+    // Calculate percentage
+    const roundedCurrent = Math.round(current as number);
+    const roundedDuration = Math.round(duration as number);
+    const animation = Math.round((roundedCurrent / roundedDuration) * 100);
+
+    setSongInfo({
+      ...songInfo,
+      currentTime: current,
+      duration,
+      animationPercentage: animation,
+    });
+  };
+
+  const songEndHandler = async (): Promise<void> => {
+    const currentIndex = songs.findIndex(song => song.id === currentSong.id);
+    await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    if (isPlaying && audioRef.current) audioRef.current.play();
   };
 
   return (
@@ -39,9 +56,12 @@ const App = (): JSX.Element => {
         audioRef={audioRef}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
+        songs={songs}
+        setSongs={setSongs}
         currentSong={currentSong}
         songInfo={songInfo}
         setSongInfo={setSongInfo}
+        setCurrentSong={setCurrentSong}
       />
       <Library
         audioRef={audioRef}
@@ -56,6 +76,7 @@ const App = (): JSX.Element => {
         onLoadedMetadata={timeUpdateHandler}
         ref={audioRef}
         src={currentSong.audio}
+        onEnded={songEndHandler}
       ></audio>
     </div>
   );
