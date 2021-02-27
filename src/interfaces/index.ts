@@ -33,16 +33,20 @@ export interface ILibraryProps {
 export interface ISongInfo {
   currentTime: number | string;
   duration: number | string;
+  animationPercentage: number | string;
   value?: HTMLAudioElement;
 }
 
 export interface IPlayer {
   audioRef: React.RefObject<HTMLAudioElement>;
+  songs: ISong[];
   currentSong: ISong;
   songInfo: ISongInfo;
   isPlaying: boolean;
+  setSongs: React.Dispatch<React.SetStateAction<ISong[]>>;
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
   setSongInfo: React.Dispatch<React.SetStateAction<ISongInfo>>;
+  setCurrentSong: React.Dispatch<React.SetStateAction<ISong>>;
 }
 
 export interface INavProps {
