@@ -15,11 +15,36 @@ A fancy music player web app built with React and TypeScript.
     <img src="https://img.shields.io/badge/typescript-007ACC.svg?&style=for-the-badge&logo=typescript&logoColor=white" />
   </a>
   &nbsp;
+   <a href='https://sass-lang.com/'>
+    <img src="https://img.shields.io/badge/sass-cc6699.svg?&style=for-the-badge&logo=sass&logoColor=white" />
+  </a>
+  &nbsp;
+   <a href='https://fontawesome.com/'>
+    <img src="https://img.shields.io/badge/font awesome-339AF0.svg?&style=for-the-badge&logo=font-awesome&logoColor=white" />
+  </a>
 </p>
+
+# Tested with
+
+<p>
+  <a href='https://jestjs.io/'>
+		<img src='https://img.shields.io/badge/jest-C21325?logoWidth=30&&style=for-the-badge&logo=jest' />
+	</a>
+  &nbsp;
+  <a href='https://testing-library.com/'>
+    <img src="https://img.shields.io/badge/testing library-E33332.svg?&style=for-the-badge&logo=testing-library&logoColor=white" />
+  </a>
+  &nbsp;
+</p>
+
+## Screenshots
+
+!["Player_library_opened"](./src/assets/readme/readme-screenshot.png "Player with library opened")
+
 
 ## Status
 
-Currently: _in development_
+Currently: _finished_
 
 
 # Development
